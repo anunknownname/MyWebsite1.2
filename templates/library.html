@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+    <div class="hero-image-mainpage"> 
+        <h3 class="library-hero-name library-hero-welcome"> Welcome to </h3>
+        <h1 class="library-hero-name">The Benjamin Library</h1>
+        <button class="login-button"> Log in/Sign Up</button>
+    </div>
+    <div class="searchbar">
+        <div class="topnav">
+          <div class="dropdown">
+            <button class="filters" href="#filters">Filters -></button>
+                <div class="dropdown-content">
+                  <a href="authors.html">Author</a>
+                  <a href="genres.html">Genre</a>
+                  <a href="size.html">Size</a>
+            </div>
+          </div> 
+              <form action="/search" method="POST">
+                <input class = 'search-container' type="text" placeholder="Search.." name="search">
+               
+              </form>
+          </div>
+          
+    </div>
+    {% endblock %}
