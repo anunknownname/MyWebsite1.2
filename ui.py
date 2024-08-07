@@ -1,21 +1,33 @@
 from flask import Flask, render_template, request, redirect
+import sqlite3
+with sqlite3.connect("database.db", check_same_thread=False) as database:
+    db=database.cursor()
 
-app = Flask(__name__)
+    app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+    @app.route('/')
+    def index():
+        return render_template('index.html')
 
 
-@app.route('/library')
-def library():
-    return render_template('library.html')
+    @app.route('/library', methods=['POST', 'GET'])
+    def library():
+        data=[]
+        if request.method=='POST':
+            data=request.form.get("search")
+            db.execute(f'''SELECT book_information.id, title, size, book_availability_status, blurb, genre FROM book_information JOIN author ON book_information.author_id = author.id WHERE author.name == ?;''', (data,))
+            results=db.fetchall()
+            if results:
+                none = ''
+            else:
+                none ='there were no results'
+        return render_template('library.html', books=results, noresults=none)
 
-@app.post('/search')
-def search():
-    data=request.form.get("search")
-    print(data)
-    return redirect('/library')
+    @app.post('/search')
+    def search():
+        data=request.form.get("search")
+        print(data)
+        return redirect('/search')
 
 
 

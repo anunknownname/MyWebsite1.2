@@ -16,11 +16,19 @@
                   <a href="size.html">Size</a>
             </div>
           </div> 
-              <form action="/search" method="POST">
-                <input class = 'search-container' type="text" placeholder="Search.." name="search">
-               
-              </form>
+              <form action="/library" method="POST">
+                <input class='search-container' type="text" placeholder="Search.." name="search">
+               </form>
+
+              
           </div>
+          <p>{{noresults}}</p>
+          {%for i in books%}
+          {%for j in i%}
+          <p>{{j}}</p>
+          {%endfor%}
+          {%endfor%}
+          
           
     </div>
     {% endblock %}
