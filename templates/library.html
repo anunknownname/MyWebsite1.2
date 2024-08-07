@@ -11,7 +11,7 @@
           <div class="dropdown">
             <button class="filters" href="#filters">Filters -></button>
                 <div class="dropdown-content">
-                  <a href="authors.html">Author</a>
+                  <input type="checkbox">
                   <a href="genres.html">Genre</a>
                   <a href="size.html">Size</a>
             </div>
@@ -22,12 +22,16 @@
 
               
           </div>
+          <div class="three-column">
           <p>{{noresults}}</p>
           {%for i in books%}
+          <div class="all">
           {%for j in i%}
           <p>{{j}}</p>
           {%endfor%}
+          </div>
           {%endfor%}
+          </div>
           
           
     </div>

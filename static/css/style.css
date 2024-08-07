@@ -28,6 +28,18 @@
     height:30vh;
     border-top: 3px solid #272932;
 }
+
+
+.three-column{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align:left;
+
+
+
+}
+
+
 .library-hero-name{
     padding-left:20px;
     line-height: 1.2;
