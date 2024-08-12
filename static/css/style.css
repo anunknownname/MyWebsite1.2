@@ -44,7 +44,10 @@
 .grid-elements{
   background-color:#4D7EA8;
   color:whitesmoke;
-  
+
+}
+.image-grid{
+  width:33.33%;
 }
 
 .three-column{

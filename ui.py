@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
 with sqlite3.connect("database.db", check_same_thread=False) as database:
     db=database.cursor()
@@ -16,9 +16,10 @@ with sqlite3.connect("database.db", check_same_thread=False) as database:
         results=''
         none=''
         blurb=''
+        search_results=''
         if request.method=='POST':
             data=request.form.get("search")
-            db.execute(f'''SELECT title, book_availability_status, genre FROM book_information JOIN author ON book_information.author_id = author.id WHERE author.name == ?;''', (data,))
+            db.execute(f'''SELECT title, book_availability_status, genre, image_file_path FROM book_information JOIN author ON book_information.author_id = author.id WHERE author.name == ?;''', (data,))
             results=db.fetchall()
             print(results[0])
             if results:
