@@ -11,12 +11,13 @@
           <div class="dropdown">
             <button class="filters" href="#filters">Filters -></button>
                 <div class="dropdown-content">
-                  <input type="checkbox">
-                  <a href="genres.html">Genre</a>
-                  <a href="size.html">Size</a>
+                  <form action="/library" method="POST">
+                  <input type="checkbox" name="availability" value="True">
+                  <label for="availability">Available</label>
+                
             </div>
           </div> 
-              <form action="/library" method="POST">
+             
                 <input class='search-container' type="text" placeholder="Search.." name="search">
                </form>
 

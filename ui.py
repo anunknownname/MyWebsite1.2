@@ -11,7 +11,8 @@ with sqlite3.connect("database.db", check_same_thread=False) as database:
 
 
     @app.route('/library', methods=['POST', 'GET'])
-    def library_author():
+    def library():
+        availability=''
         data=[]
         results=''
         none=''
@@ -19,9 +20,10 @@ with sqlite3.connect("database.db", check_same_thread=False) as database:
         search_results=''
         if request.method=='POST':
             data=request.form.get("search")
+            availability=request.form.getlist("availability")
+            print(availability)
             db.execute(f'''SELECT title, book_availability_status, genre, image_file_path FROM book_information JOIN author ON book_information.author_id = author.id WHERE author.name == ?;''', (data,))
             results=db.fetchall()
-            print(results[0])
             if results:
                 none = ''
                 search_results='Here are your results!'
@@ -32,12 +34,11 @@ with sqlite3.connect("database.db", check_same_thread=False) as database:
             blurb=db.fetchall()
         return render_template('library.html', books=results, noresults=none, blurb=blurb, search_results=search_results)
 
-    @app.post('/search')
-    def search():
-        data=request.form.get("search")
-        print(data)
-        return redirect('/search')
+    @app.post('/availability')
+    def availability_check():
+        data=request.form.get("availability")
 
+        return redirect("/availability")
 
 
 
