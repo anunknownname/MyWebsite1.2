@@ -1,43 +1,47 @@
 {% extends 'layout.html' %}
 {% block body %}
 
-    <div class="hero-image-mainpage"> 
-        <h3 class="library-hero-name library-hero-welcome"> Welcome to </h3>
-        <h1 class="library-hero-name">The Benjamin Library</h1>
-        <button class="login-button"> Log in/Sign Up</button>
+<div class="hero-image-mainpage">
+  <h3 class="library-hero-name library-hero-welcome"> Welcome to </h3>
+  <h1 class="library-hero-name">The Benjamin Library</h1>
+  <button class="login-button"> Log in/Sign Up</button>
+</div>
+<div class="searchbar">
+  <div class="topnav">
+    <div class="dropdown">
+      <button class="filters" href="#filters">Filters -></button>
+      <div class="dropdown-content">
+        <form action="/library" method="POST">
+          <input type="checkbox" name="availability">
+          <label for="availability">Available</label>
+      </div>
     </div>
-    <div class="searchbar">
-        <div class="topnav">
-          <div class="dropdown">
-            <button class="filters" href="#filters">Filters -></button>
-                <div class="dropdown-content">
-                  <form action="/library" method="POST">
-                  <input type="checkbox" name="availability" value="True">
-                  <label for="availability">Available</label>
-                
-            </div>
-          </div> 
-             
-                <input class='search-container' type="text" placeholder="Search.." name="search">
-               </form>
 
-              
-          </div>
-        
-          <p>{{noresults}}</p>
-          <p>{{search_results}}</p>
-          <DIV class="three-column">
-          {%for i in books%}
-          
-          <div class="grid-elements">
-          <p class="title">{{i[0]}}</p>
-          <p class="data-elements">{{i[1]}} {{i[2]}}</p>
-          <img src="{{i[3]}}" class="image-grid"/>
-          </div>
-          {%endfor%}
-          </DIV>
-         
-          
-          
+    <input class='search-container' type="text" placeholder="Search.." name="search">
+    </form>
+
+  </div>
+</div>
+
+<p>{{noresults}}</p>
+<p>{{search_results}}</p>
+<DIV class="cards">
+  {%for i in books%}
+  {%for j in i%}
+
+  <div class="card">
+
+    <p class="title">{{j[0]}}</p>
+    <p class="data-elements">{{j[1]}} {{j[2]}}</p>
+    <div class="two-column">
+      <img src="{{j[3]}}" class="card-image" />
     </div>
-    {% endblock %}
+  </div>
+  {%endfor%}
+  {%endfor%}
+
+
+
+
+</div>
+{% endblock %}

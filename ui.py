@@ -14,22 +14,41 @@ with sqlite3.connect("database.db", check_same_thread=False) as database:
     def library():
         availability=''
         data=[]
-        results=''
+        results=[]
         none=''
         blurb=''
         search_results=''
         if request.method=='POST':
             data=request.form.get("search")
-            availability=request.form.getlist("availability")
-            print(availability)
-            db.execute(f'''SELECT title, book_availability_status, genre, image_file_path FROM book_information JOIN author ON book_information.author_id = author.id WHERE author.name == ?;''', (data,))
-            results=db.fetchall()
-            if results:
+            if request.form.get("availability") == None:
+                availability=''
+            else:
+                availability='Available'
+           
+            db.execute(f'''SELECT title, book_availability_status, genre, image_file_path FROM book_information JOIN author ON book_information.author_id = author.id WHERE author.name == ? AND book_availability_status LIKE '{availability}%';''', (data,))
+
+            results_authors=db.fetchall()
+            db.execute(f'SELECT title, book_availability_status, genre, image_file_path FROM book_information WHERE title="{data}"')
+            results_books=db.fetchall()
+            db.execute(f'SELECT title, book_availability_status, genre, image_file_path FROM book_information WHERE genre="{data}"')
+            results_genre=db.fetchall()
+            results.extend((results_authors, results_books, results_genre))
+            print(results)
+            for i in results:
+                if i == []:
+                    results.remove(i)
+                for j in i:
+                    print(f"{j}=j")
+                    if j == []:
+                        results.remove(j)
+            if results != [[]]:
                 none = ''
                 search_results='Here are your results!'
-            else:
+            elif results==[[]]:
                 none ='There were no results :('
                 search_results=''
+                results=''
+            print(results)
             db.execute(f'SELECT blurb, size FROM book_information JOIN author ON book_information.author_id = author_id WHERE author.name == ?;', (data,))
             blurb=db.fetchall()
         return render_template('library.html', books=results, noresults=none, blurb=blurb, search_results=search_results)
