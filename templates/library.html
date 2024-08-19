@@ -27,17 +27,19 @@
 <p>{{search_results}}</p>
 <DIV class="cards">
   {%for i in books%}
-  {%for j in i%}
+
 
   <div class="card">
-
-    <p class="title">{{j[0]}}</p>
-    <p class="data-elements">{{j[1]}} {{j[2]}}</p>
     <div class="two-column">
-      <img src="{{j[3]}}" class="card-image" />
+      <img src="{{i[3]}}" class="card-image" />
     </div>
+    <p class="data-elements">It's {{i[1]}}!</p>
+     <p>Genre: {{i[2]}}</p>
+    <p class="title">{{i[0]}}</p>
+    
+    
   </div>
-  {%endfor%}
+  
   {%endfor%}
 
 
