@@ -9,8 +9,7 @@
 }
 body{
   background-color: seashell;
-  margin:0;
-  padding:0;
+
 }
 .login-button{
     background-color: #272932;
@@ -30,6 +29,7 @@ body{
 .title{
   text-decoration:underline;
   color:whitesmoke;
+  text-align:center;
 }
 .title:hover{
   text-decoration: overline;
@@ -46,47 +46,52 @@ body{
     border-spacing: 0;
     margin:0;
 }
-.data-elements{
-  color:#210203;
-}
+
 .card{
   color:whitesmoke;
   border-radius: 3px;
-  border: solid 3px black;
   padding:0px;
   margin-bottom:30px;
-  height:300px;
-
+  border: 5px solid black; 
+  outline: 5px solid #AB87FF;
+  outline-offset: 0px;
+  
+  
 }
 .card-image{
   width:100%;
   position:inline;
-
-
+}
+.data-elements{
+  color:black;
+  text-align:center;
+  display:block;
+  padding-left:0.5em;
+  padding-right:0.5em;
+}
  
 
-}
+
 .two-column{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:1em;
-  bottom:0%;
-  padding-top:0;
-  padding-bottom:0;
-  margin-bottom:0;
-  line-height: 0;
+
 }
 .title{
   color:#210203;
   text-align:center;
   font-size:large;
+  width:auto;
+  margin-top:20px;
 }
 
 .cards{
   display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  border-bottom:#AB87FF 30px solid;
   gap:6em;
+  padding-left:10px;
+  padding-right:10px;
 
  
 }
