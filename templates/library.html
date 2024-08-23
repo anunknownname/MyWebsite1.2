@@ -8,18 +8,18 @@
 </div>
 <div class="searchbar">
   <div class="topnav">
-    <div class="dropdown">
-      <button class="filters" href="#filters">Filters -></button>
-      <div class="dropdown-content">
-        <form action="/library" method="POST">
-          <input type="checkbox" name="availability">
-          <label for="availability">Available</label>
-      </div>
-    </div>
-
-    <input class='search-container' type="text" placeholder="Search.." name="search">
+    
+    <a href="">About</a>
+    <a href="">Events</a>
+    <a href="">Contact</a>
+    <form action="/library" method="POST">
+    
+    <label class='container'for="availability">Available
+      <input type="checkbox" name="availability" id="availability">
+      <span class='checkmark'></span>
+    </label>
+    <input class='search-container' type="text" placeholder="Search for books..." name="search">
     </form>
-
   </div>
 </div>
 
