@@ -25,10 +25,10 @@ with sqlite3.connect("database.db", check_same_thread=False) as database:
             else:
                 availability='Available'
            
-            db.execute(f'''SELECT title, book_availability_status, genre, image_file_path FROM book_information JOIN author ON book_information.author_id = author.id WHERE book_availability_status LIKE '{availability}%' AND (author.name = "{data}"  OR genre = "{data}" OR title = "{data}");''')
+            db.execute(f'''SELECT title, book_availability_status, genre, image_file_path, blurb FROM book_information JOIN author ON book_information.author_id = author.id WHERE book_availability_status LIKE '{availability}%' AND (author.name = "{data}"  OR genre = "{data}" OR title = "{data}");''')
 
             results=db.fetchall()
-            print(results)
+    
             if results:
                 none = ''
                 search_results='Here are your results!'
@@ -36,8 +36,8 @@ with sqlite3.connect("database.db", check_same_thread=False) as database:
                 none ='There were no results :('
                 search_results=''
                 results=''
-            db.execute(f'SELECT blurb, size FROM book_information JOIN author ON book_information.author_id = author_id WHERE author.name == ?;', (data,))
-            blurb=db.fetchall()
+            
+            
         return render_template('library.html', books=results, noresults=none, blurb=blurb, search_results=search_results)
 
     @app.post('/availability')

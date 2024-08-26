@@ -9,9 +9,10 @@
 <div class="searchbar">
   <div class="topnav">
     
-    <a href="">About</a>
-    <a href="">Events</a>
-    <a href="">Contact</a>
+    <a class='about' href="about.html">About</a>
+    <a class='contact'href="contact.html">Contact</a>
+    <a class = 'events'href="events.html">Events</a>
+    
     <form action="/library" method="POST">
     
     <label class='container'for="availability">Available
@@ -35,7 +36,13 @@
     <p class="data-elements">This book is {{i[1]}}! <br><br> Genre: {{i[2]}} <button class="check-out-button">Check out Now!</button></p>
     
     </div>
-    <p class="title">{{i[0]}}</p>
+    <div class="dropdown">
+    <p class="title" class="dropbtn">{{i[0]}}</p>
+      <div class="dropdown-content">
+        <p class="blurb">{{i[4]}}</p>
+      </div>
+      </div>
+
 
     
     
