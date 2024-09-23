@@ -28,6 +28,7 @@ with sqlite3.connect("database.db", check_same_thread=False) as database:
             db.execute(f'''SELECT title, book_availability_status, genre, image_file_path, blurb FROM book_information JOIN author ON book_information.author_id = author.id WHERE book_availability_status LIKE '{availability}%' AND (author.name = "{data}"  OR genre = "{data}" OR title = "{data}");''')
 
             results=db.fetchall()
+            print(results)
     
             if results:
                 none = ''
