@@ -7,8 +7,32 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="hero-image-mainpage">
+        <h3 class="library-hero-name library-hero-welcome"> Welcome to </h3>
+        <h1 class="library-hero-name">The Benjamin Library</h1>
+        <button class="login-button"> Log in/Sign Up</button>
+      </div>
+      <div class="searchbar">
+        <div class="topnav">
+          
+         
+          <a class='contact'href="contact.html">Contact</a>
+          <a class='events'href="events.html">Events</a>
+          <a class='about' href="about.html">About</a>
+          <form action="/library" method="POST">
+          
+          
+          <input class='search-container' type="text" placeholder="Search for books..." name="search">
+          <label class='container'for="availability">Available
+            <input type="checkbox" name="availability" id="availability" checked>
+            <span class='checkmark'></span>
+          </label>
+          </form>
+        </div>
+      </div>
     {% block body %}
     
     
     {% endblock %}
 </body>
+

@@ -23,14 +23,14 @@ with sqlite3.connect("database.db", check_same_thread=False) as database:
             if request.form.get("availability") == None:
                 availability=''
             else:
-                availability='Available'
+                availability='Availabl'
            
             db.execute(f'''SELECT title, book_availability_status, genre, image_file_path, blurb, book_id FROM book_information JOIN author ON book_information.author_id = author.id WHERE book_availability_status LIKE '{availability}%' AND (author.name = "{data}"  OR genre = "{data}" OR title = "{data}");''')
 
             results=db.fetchall()
             print(results)
             if data == '' and results == []:
-                db.execute(f'''SELECT title, book_availability_status, genre, image_file_path, blurb, book_id FROM book_information''')
+                db.execute(f'''SELECT title, book_availability_status, genre, image_file_path, blurb, book_id FROM book_information WHERE book_availability_status LIKE '{availability}%';''')
                 results=db.fetchall()
             if results:
                 none = ''
@@ -39,6 +39,7 @@ with sqlite3.connect("database.db", check_same_thread=False) as database:
                 none ='There were no results :('
                 search_results=''
                 results=''
+           
             
             
         return render_template('library.html', books=results, noresults=none, blurb=blurb, search_results=search_results)
@@ -47,6 +48,7 @@ with sqlite3.connect("database.db", check_same_thread=False) as database:
     def book(book_id):
         db.execute(f'''SELECT title, book_availability_status, genre, image_file_path, blurb, book_id FROM book_information JOIN author ON book_information.author_id = author.id WHERE book_id = {book_id};''')
         results=db.fetchall()
+        print(results)
         return render_template('book_info.html', results=results)
         
 
