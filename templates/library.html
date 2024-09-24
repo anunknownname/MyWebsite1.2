@@ -28,20 +28,17 @@
 <p class="results">{{noresults}}</p>
 <p class="results">{{search_results}}</p>
 <DIV class="cards">
+
+
   {%for i in books%}
-
-
   <div class="card">
     <div class="two-column">
       <img src="{{i[3]}}" class="card-image" />
     <p class="data-elements">This book is {{i[1]}}! <br><br> Genre: {{i[2]}} <button class="check-out-button">Check out Now!</button></p>
     
     </div>
-    <div class="dropdown">
-    <p class="title" class="dropbtn">{{i[0]}}</p>
-      <div class="dropdown-content">
-        <p class="blurb">{{i[4]}}</p>
-      </div>
+    <div>
+    <a href="/book/{{i[5]}}"><p class="title">{{i[0]}}</p></a>
       </div>
 
 
