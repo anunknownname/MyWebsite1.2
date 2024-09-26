@@ -30,7 +30,7 @@ with sqlite3.connect("database.db", check_same_thread=False) as database:
             results=db.fetchall()
             print(results)
             if data == '' and results == []:
-                db.execute(f'''SELECT title, book_availability_status, genre, image_file_path, blurb, book_id FROM book_information WHERE book_availability_status LIKE '{availability}%';''')
+                db.execute(f'''SELECT title, book_availability_status, genre, image_file_path, blurb, book_id, author.name FROM book_information, author WHERE book_availability_status LIKE '{availability}%';''')
                 results=db.fetchall()
             if results:
                 none = ''
@@ -46,7 +46,7 @@ with sqlite3.connect("database.db", check_same_thread=False) as database:
 
     @app.route('/book/<int:book_id>')
     def book(book_id):
-        db.execute(f'''SELECT title, book_availability_status, genre, image_file_path, blurb, book_id FROM book_information JOIN author ON book_information.author_id = author.id WHERE book_id = {book_id};''')
+        db.execute(f'''SELECT title, book_availability_status, genre, image_file_path, blurb, book_id, author.name FROM book_information JOIN author ON book_information.author_id = author.id WHERE book_id = {book_id};''')
         results=db.fetchall()
         print(results)
         return render_template('book_info.html', results=results)

@@ -1,12 +1,20 @@
-{% extends 'layout.html' %}
-{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>Document</title>
+</head>
+<body>
+    
+    <img class="hero-image" src="/static/images/images.jpg" alt="orange">
+    <div class="hero-text">
+        <h1 class="mainpage-text">Welcome to the Benjamin Library!</h1>
+        <p class="mainpage-text">It's a library designed by Benjamin!</p>
+        <a href="/library">
+        <button class="enter-button">Enter the library:</button></a>
+    </div>
+</body>
+</html>
 
-        <img class="hero-image" src="/static/images/images.jpg" alt="orange">
-        <div class="hero-text">
-            <h1 class="mainpage-text">Welcome to the Benjamin Library!</h1>
-            <p class="mainpage-text">It's a library designed by Benjamin!</p>
-            <a href="/library">
-            <button class="enter-button">Enter the library:</button></a>
-        </div>
-        
-{% endblock %}

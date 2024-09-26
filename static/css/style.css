@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap');
 
 
 
@@ -22,17 +23,32 @@ body{
 .book-title{
   margin-left:50px;
   margin-top:50px;
-  font-family:'Inter';
+  font-family:'Signika';
+  font-size:40px;
+  color: rgb(50, 51, 52);
+
 }
 .book-image{
   width:20%;
   margin-left:50px;
+  display:inline;
+}
+.book-author{
+  display:inline;
+  font-size:25px;
+  vertical-align: top;
+  padding-left:25px;
+  font-family: 'Signika';
+}
+.book-blurb{
+  display:inline;  
+  vertical-align: top;
 }
 .go-back{
   margin-left:30px;
   margin-top:30px;
   background: #ecf2f6;
-  color:black;
+  color: rgb(50, 51, 52);
   width:21%;
   border:none;
   font-family:'Work Sans';
@@ -43,7 +59,7 @@ body{
   -webkit-transform: rotate(135deg);
 }
 .arrow {
-  border: solid black;
+  border: solid rgb(50, 51, 52);
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
