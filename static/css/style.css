@@ -22,27 +22,31 @@ body{
 }
 .book-title{
   margin-left:50px;
-  margin-top:50px;
+  margin-top:30px;
   font-family:'Signika';
   font-size:40px;
   color: rgb(50, 51, 52);
 
 }
 .book-image{
-  width:20%;
-  margin-left:50px;
-  display:inline;
+  width:50%;
+ 
 }
 .book-author{
-  display:inline;
+  
   font-size:25px;
-  vertical-align: top;
-  padding-left:25px;
+  
+  
   font-family: 'Signika';
 }
 .book-blurb{
-  display:inline;  
-  vertical-align: top;
+  
+  
+
+}
+.book-two-column{
+  display:grid;
+  grid-template-columns:  1fr 2fr;
 }
 .go-back{
   margin-left:30px;
