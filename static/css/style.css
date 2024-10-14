@@ -30,28 +30,50 @@ body{
 }
 .book-image{
   width:50%;
+  margin-left:50px;
  
 }
 .book-author{
-  
+  position:relative;
+  right:13%; 
   font-size:25px;
-  
-  
+  margin:0;
   font-family: 'Signika';
 }
 .book-blurb{
+  border-top:darkslategray solid 1px;
   
-  
+  position:relative;
+  top:40%;
+  right:13%;  
+  width:50%;
+  font-size:large;
+  display:block;
+  padding-bottom:10px;
+  margin-bottom: 10px;
+}
+.bottom-line{
+  margin-top:30px;
+  margin-bottom:30px;
+  border:solid darkslategrey 1px;
+  display: block;
+}
 
+.book-info-layout{
+  background-color: whitesmoke;
 }
 .book-two-column{
+  position:relative;
+  top:10%;
   display:grid;
   grid-template-columns:  1fr 2fr;
+  margin-bottom:10px;
+  padding-bottom: 10px  ;
 }
 .go-back{
   margin-left:30px;
   margin-top:30px;
-  background: #ecf2f6;
+  background: whitesmoke;
   color: rgb(50, 51, 52);
   width:21%;
   border:none;

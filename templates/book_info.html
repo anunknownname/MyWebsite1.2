@@ -1,14 +1,18 @@
 {% extends 'layout.html' %}
 {% block body %}
 {%for i in results%}
+<div class="book-info-layout">
 <button class='go-back' onclick="history.back()"><i class="arrow left"></i>Go Back to Search Results</button>
 <p class="book-title">{{i[0]}}</p>\
 <div class="book-two-column">
 <img src="{{i[3]}}" class="book-image" />
 <div class="author-blurb">
 <h3 class="book-author">By {{i[6]}}</h3>
+
 <p class="book-blurb">{{i[4]}}</p>
 </div>
 </div>
+</div>
+<hr class="bottom-line">
 {%endfor%}
 {% endblock %}
