@@ -129,10 +129,10 @@ footer{
   color:whitesmoke;
   text-align:center;
   font-family: 'Inter';
+  font-weight: bold;
 }
 .title:hover{
-  text-decoration: none;
-  font-weight:bold;
+  font-size:20px;
 }
 .dropbtn {
   background-color: #04AA6D;
