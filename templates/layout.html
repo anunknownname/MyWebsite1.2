@@ -10,15 +10,15 @@
     <div class="hero-image-mainpage">
         <h3 class="library-hero-name library-hero-welcome"> Welcome to </h3>
         <h1 class="library-hero-name">The Benjamin Library</h1>
-        <button class="login-button"> Log in/Sign Up</button>
+        <button class="login-button"><a href="{{url_for('login')}}">Log in/Sign Up</a></button>
       </div>
       <div class="searchbar">
         <div class="topnav">
           
          
-          <a class='contact'href="/contact">Contact</a>
-          <a class='events'href="/events">Events</a>
-          <a class='about' href="/about">About</a>
+          <a class='contact'href="{{url_for('contact')}}">Contact</a>
+          <a class='events'href="{{url_for('events')}}">Events</a>
+          <a class='about' href="{{url_for('about')}}">About</a>
           <form action="/library" method="POST">
           
           

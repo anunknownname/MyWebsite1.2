@@ -4,7 +4,7 @@
 <div class="book-info-layout">
 <button class='go-back' onclick="history.back()"><i class="arrow left"></i>Go Back to Search Results</button>
 <div class="book-two-column">
-<p class="book-title">{{i[0]}}</p>\
+<p class="book-title">{{i[0]}}</p>/
 
 <img src="{{i[3]}}" class="book-image" />
 <div class="author-blurb">
@@ -14,6 +14,15 @@
 </div>
 </div>
 </div>
+<table class="check-out-table">
+    <tr>
+        <td class="availability-bookinfo">{{i[1]}}
+            <br>
+            <button class="checkout-bookinfo"><a href="{{url_for('checkout')}}" class="anchor-for-checkout">Check out Now!</a></button>
+        </td>
+    </tr>
+  
+</table>
 <hr class="bottom-line">
 {%endfor%}
 {% endblock %}

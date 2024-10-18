@@ -51,8 +51,26 @@ with sqlite3.connect("database.db", check_same_thread=False) as database:
         print(results)
         return render_template('book_info.html', results=results)
         
+    @app.route("/checkout")
+    def checkout():
+        return render_template('checkout.html')
+    
+    @app.route("/about")
+    def about():
+        return render_template('about.html')
+    
+    @app.route("/events")
+    def events():
+        return render_template('events.html')
+    
+    @app.route("/contact")
+    def contact():
+        return render_template('contact.html')
 
-
+    @app.route("/login")
+    def login():
+        return render_template('login.html')
+    
     @app.post('/availability')
     def availability_check():
         data=request.form.get("availability")
