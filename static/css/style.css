@@ -70,6 +70,9 @@ body{
   text-decoration: none;
   
 }
+.login-dropdown{
+  margin:40px;
+}
 .check-out-table{
   position:relative;
   right:-77vw;
