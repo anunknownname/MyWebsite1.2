@@ -54,7 +54,7 @@ with sqlite3.connect("database.db", check_same_thread=False) as database:
 
 
     @app.route('/library', methods=['POST', 'GET'])
-    def library(if_logged):
+    def library():
         availability=''
         data=[]
         results=[]
@@ -82,8 +82,7 @@ with sqlite3.connect("database.db", check_same_thread=False) as database:
                 none ='There were no results :('
                 search_results=''
                 results=''
-            if if_logged:
-                none=if_logged
+
             
             
         return render_template('library.html', books=results, noresults=none, blurb=blurb, search_results=search_results)
@@ -114,7 +113,7 @@ with sqlite3.connect("database.db", check_same_thread=False) as database:
             print(results[0][0])
             if int(results[0][0]) == int(passcode_data):
                 print('hi')
-                return redirect(url_for('library'), if_logged=True)
+                return redirect(url_for('library'))
         else:
             print('that person doesnt exist')
             print("go sign up")
@@ -140,8 +139,3 @@ with sqlite3.connect("database.db", check_same_thread=False) as database:
 
         return redirect("/availability")
 
-
-
-
-if __name__ == '__main__':
-    app.run(debug=True) 
