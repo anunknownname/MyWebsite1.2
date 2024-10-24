@@ -100,7 +100,7 @@ with sqlite3.connect("database.db", check_same_thread=False) as database:
     #     results=db.fetchall()
     #     return render_template('checkout.html', results=results)
     
-    @app.route("/login", methods=['GET'])
+    @app.route("/login", methods=['POST','GET'])
     def login():
         user_data=request.form.get('user')
         passcode_data=request.form.get('passcode')
