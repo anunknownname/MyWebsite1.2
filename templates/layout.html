@@ -5,23 +5,26 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Above: Setting up the html, and linking to the css in the static folder -->
 </head>
 <body>
+  <!-- Formatting for the hero image/text -->
     <div class="hero-image-mainpage">
         <h3 class="library-hero-name library-hero-welcome"> Welcome to </h3>
         <h1 class="library-hero-name">The Benjamin Library</h1>
         <button class="login-button"><a href="{{url_for('login')}}">Log in/Sign Up</a></button>
       </div>
+      <!-- Top nav bar -->
       <div class="searchbar">
         <div class="topnav">
           
-         
+         <!-- Links to other pages -->
           <a class='contact'href="{{url_for('contact')}}">Contact</a>
           <a class='events'href="{{url_for('events')}}">Events</a>
           <a class='about' href="{{url_for('about')}}">About</a>
           <form action="/library" method="POST">
           
-          
+          <!-- Form that holds the availabiltiy checkbox, and search bar -->
           <input class='search-container' type="text" placeholder="Search for books..." name="search">
           <label class='container'for="availability">Available
             <input type="checkbox" name="availability" id="availability" checked>
@@ -31,8 +34,6 @@
         </div>
       </div>
     {% block body %}
-    
-    
     {% endblock %}
 </body>
 

@@ -1,24 +1,28 @@
 {% extends 'layout.html' %}
 {% block body %}
-{%for i in results%}
+{%for i in results%} 
+<!-- Looping through the specific book data -->
 <div class="book-info-layout">
 <button class='go-back' onclick="history.back()"><i class="arrow left"></i>Go Back to Search Results</button>
+<!-- Above: button that goes back to last page: this will be the search results -->
+ <!-- Below: Bok Information to be formatted -->
 <div class="book-two-column">
 <p class="book-title">{{i[0]}}</p>/
 
 <img src="{{i[3]}}" class="book-image" />
 <div class="author-blurb">
 <h3 class="book-author">By {{i[6]}}</h3>
-
 <p class="book-blurb">{{i[4]}}</p>
 </div>
 </div>
 </div>
 <table class="check-out-table">
     <tr>
+        <!-- List that makes a table for availability status, and checkout button -->
         <td class="availability-bookinfo">{{i[1]}}
             <br>
             <button class="checkout-bookinfo"><a href="{{url_for('login')}}" class="anchor-for-checkout">Check out Now!</a></button>
+            <!-- Above: Button that sends to login page -->
         </td>
     </tr>
   

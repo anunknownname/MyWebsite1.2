@@ -1,37 +1,31 @@
-{% extends 'layout.html' %}
+{% extends 'layout.html' %}  
+<!-- extending the layout.html page -->
 {% block body %}
-
-
-
-
 <p class="results">{{noresults}}</p>
+<!-- Printing whether there are resutls or not -->
 <p class="results">{{search_results}}</p>
-<DIV class="cards">
-
-
+<DIV class="cards"> 
+  <!-- The group of all the different book cards. In a grid 4 column layout.-->
   {%for i in books%}
+  <!-- Looping through the search results -->
   <div class="card">
+    <!-- each individual card -->
     <div class="two-column">
+      <!-- grid layout within the card with data -->
+       <!-- Everything below is book data inside each card -->
       <img src="{{i[3]}}" class="card-image" />
     <p class="data-elements">This book is {{i[1]}}! <br><br> Genre: {{i[2]}} <button class="check-out-button">Check out Now!</button></p>
-    
     </div>
     <div>
+      <!-- Anchor to send to the page unique to the book ID -->
     <a href="/book/{{i[5]}}"><p class="title">{{i[0]}}</p></a>
-      </div>
-
-
-    
-    
+    </div>
   </div>
-  
-  {%endfor%}
-
-
-
-
+  {%endfor%} 
+  <!-- Ending the loop -->
 </div>
 <footer>
-  <br><p class='made-by'>Made by Benjamin Wray!</p><br>
+  <br><p class='made-by'>Made by Benjamin Wray!</p><br> 
+  <!-- Footer -->
 </footer>
 {% endblock %}
